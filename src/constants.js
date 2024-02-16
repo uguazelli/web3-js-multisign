@@ -4,6 +4,12 @@ export const MY_WALLET = "0x45b8DE68d7E9B00b26A72Af6b4832531cd961A8d";
 
 export const PARTICIPANTS = ["0x45b8DE68d7E9B00b26A72Af6b4832531cd961A8d"];
 
+export const METHODS_OPTIONS = {
+	defaultGasPrice: "20000000000", // default gas price in wei, 20 gwei in this case
+	defaultGas: 5000000, // provide the gas limit for transactions
+	//...other optional properties
+};
+
 export const ABI = [
 	{
 		anonymous: false,
