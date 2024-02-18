@@ -6,9 +6,11 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 const AddParticipant = ({ participantsArray, setParticipantsArray }) => {
 	const [participant, setParticipant] = useState("");
+	const [isValidEthereumAddress, setValidEthereumAddress] = useState(false);
 
 	const handleParticipantsChange = event => {
 		setParticipant(event.target.value);
+		handleAddressForm(event.target.value);
 	};
 
 	const addParticipants = () => {
@@ -18,6 +20,13 @@ const AddParticipant = ({ participantsArray, setParticipantsArray }) => {
 		const filteredArray = participantsArray.filter(item => item !== itemToRemove);
 		setParticipantsArray(filteredArray);
 	};
+
+	function handleAddressForm(address) {
+		const regex = /^0x[a-fA-F0-9]{40}$/;
+		const isValid = regex.test(address);
+		setValidEthereumAddress(isValid);
+		console.log(isValidEthereumAddress);
+	}
 
 	return (
 		<div>
@@ -41,7 +50,8 @@ const AddParticipant = ({ participantsArray, setParticipantsArray }) => {
 				<TextField
 					id="standard-static"
 					label="Partner Address"
-					color="secondary"
+					color={isValidEthereumAddress ? "success" : "secondary"}
+					error={!isValidEthereumAddress}
 					focused
 					style={{ flex: 6 }}
 					value={participant}
