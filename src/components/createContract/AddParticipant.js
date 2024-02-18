@@ -6,6 +6,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 const AddParticipant = ({ participantsArray, setParticipantsArray }) => {
 	const [participant, setParticipant] = useState("");
+
 	const handleParticipantsChange = event => {
 		setParticipant(event.target.value);
 	};
