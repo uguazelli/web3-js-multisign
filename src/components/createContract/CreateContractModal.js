@@ -18,8 +18,6 @@ const ContractModal = ({ open, handleClose }) => {
 	};
 
 	const createContract = async () => {
-		console.log("Participants: " + participantsArray);
-		console.log("Agreement: " + contractAgreement);
 		setContractLoading("Creating contract ...");
 		const _createContract = await contract.methods
 			.createContract(participantsArray, contractAgreement)

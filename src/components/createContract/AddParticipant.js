@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { UseStore } from "../../UseStore";
 import TextField from "@mui/material/TextField";
 import ClearIcon from "@mui/icons-material/Clear";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
@@ -10,7 +9,9 @@ const AddParticipant = ({ participantsArray, setParticipantsArray }) => {
 
 	const handleParticipantsChange = event => {
 		setParticipant(event.target.value);
-		handleAddressForm(event.target.value);
+		const regex = /^0x[a-fA-F0-9]{40}$/;
+		const isValid = regex.test(event.target.value);
+		setValidEthereumAddress(isValid);
 	};
 
 	const addParticipants = () => {
@@ -20,13 +21,6 @@ const AddParticipant = ({ participantsArray, setParticipantsArray }) => {
 		const filteredArray = participantsArray.filter(item => item !== itemToRemove);
 		setParticipantsArray(filteredArray);
 	};
-
-	function handleAddressForm(address) {
-		const regex = /^0x[a-fA-F0-9]{40}$/;
-		const isValid = regex.test(address);
-		setValidEthereumAddress(isValid);
-		console.log(isValidEthereumAddress);
-	}
 
 	return (
 		<div>
