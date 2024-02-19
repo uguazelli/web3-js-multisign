@@ -5,6 +5,7 @@ import ContractModal from "./createContract/CreateContractModal";
 import Balance from "./balance/Balance";
 import ContractId from "./contractId/ContractId";
 import ContractDetails from "./contractDetails/ContractDetails";
+import DeleteContract from "./deleteContract/DeleteContract";
 
 const Contract = () => {
 	const connectedAccount = UseStore(state => state.connectedAccount);
@@ -28,6 +29,7 @@ const Contract = () => {
 
 			<Balance />
 			<ContractId />
+			<DeleteContract />
 			<ContractDetails />
 		</div>
 	);

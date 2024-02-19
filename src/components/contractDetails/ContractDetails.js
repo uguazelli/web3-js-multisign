@@ -11,7 +11,6 @@ const ContractDetails = () => {
 	const getDetailsById = async () => {
 		const _details = await contract.methods.getDetails(contractId).call();
 		setDetails(_details);
-		console.log(_details);
 	};
 
 	return (
@@ -19,7 +18,14 @@ const ContractDetails = () => {
 			<Button className="customButton" onClick={getDetailsById}>
 				Get Contract Details
 			</Button>
-			<h3>{details && "See details in the console"}</h3>
+			{details && (
+				<div>
+					<h3>{`Adresses in this contract: ${details.participants}`}</h3>
+					<h3> {`Address that already confirmed: ${details.confirmed}`} </h3>
+					<h3> {`Contract Status: ${details.contractStatus}`} </h3>
+					<h3> {`Contract Agreement: ${details.agreement}`} </h3>
+				</div>
+			)}
 		</div>
 	);
 };

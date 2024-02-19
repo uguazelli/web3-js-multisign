@@ -96,6 +96,19 @@ export const ABI = [
 				type: "bytes32",
 			},
 		],
+		name: "deleteContract",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
+	},
+	{
+		inputs: [
+			{
+				internalType: "bytes32",
+				name: "_id",
+				type: "bytes32",
+			},
+		],
 		name: "getDetails",
 		outputs: [
 			{
